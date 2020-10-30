@@ -180,16 +180,20 @@
 	        <a class="nav-link" href="menu.php">Menu</a>
 	      </li>
 	      <li class="nav-item px-2">
-	        <a class="nav-link active-link" href="about_us.php">About</a>
+	        <a class="nav-link active-link" href="#">About</a>
 	      </li>
 	      <li class="nav-item px-2">
-	        <a class="nav-link" href="contact_us.php">Contact Us</a>
+	        <a class="nav-link" href="contactus.php">Contact Us</a>
 	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="#">Log in</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="#">Sign Up</a>
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          My Account
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	          <a class="dropdown-item" href="profile.php">Profile</a>
+	          <a class="dropdown-item" href="#">My Orders</a>
+	          <a class="dropdown-item" href="logout.php">LogOut</a>
+	        </div>
 	      </li>
 
 

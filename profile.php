@@ -1,7 +1,15 @@
-<?php include('connect.php')?>
+
+	<?php
+		include 'connect.php';
+		session_start();
+		$id = $_SESSION['id'];
+		$query = mysqli_query($db,"SELECT * FROM user_details WHERE user_id = '$id'") or die(mysqli_error());
+		$row = mysqli_fetch_array($query)
+	?>
+
 
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -182,16 +190,20 @@
 	        <a class="nav-link" href="menu.php">Menu</a>
 	      </li>
 	      <li class="nav-item px-2">
-	        <a class="nav-link" href="about_us.php">About</a>
+	        <a class="nav-link " href="about_us.php">About</a>
 	      </li>
 	      <li class="nav-item px-2">
-	        <a class="nav-link" href="contactus.php">Contact Us</a>
+	        <a class="nav-link " href="contactus.php">Contact Us</a>
 	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="login.php">Log in</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link  active-link" href="signup.php">Sign Up</a>
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          My Account
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	          <a class="dropdown-item" href="profile.php">Profile</a>
+	          <a class="dropdown-item" href="#">My Orders</a>
+	          <a class="dropdown-item" href="logout.php">LogOut</a>
+	        </div>
 	      </li>
 
 
@@ -200,76 +212,35 @@
 	  	</div>
 	</nav>
 
-	<div class="header">
-		<h1>Registeration</h1>	
-		<!-- <a href="index.php"><button class="button button4">Back to Home</button></a> -->	
+	<h1>USER PROFILE</h1>
+	<div class="profile-input-field">
+		<h3>Fill out All the details</h3>
+		<form method="post" , action="#">
+			<div class="form-group">
+				<label>Fullname</label>
+				<input type="text" name="fname" style="width: 20em" placeholder="Enter your Fullname" value="<?php echo $row['user_name']; ?>" required />
+			</div>
+
+			<div class="form-group">
+				<label>Address</label>
+				<input type="text" name="address" style="width: 20em" placeholder="Enter your Address" value="<?php echo $row['user_address']; ?>" required />
+			</div>
+
+			<div class="form-group">
+				<label>Email</label>
+				<input type="text" name="email" style="width: 20em" placeholder="Enter your Email" value="<?php echo $row['user_emailid']; ?>" required />
+			</div>
+
+			<div class="form-group">
+				<label>Mobile Number</label>
+				<input type="text" name="number" style="width: 20em" placeholder="Enter your Address" value="<?php echo $row['user_mobilenumber']; ?>" required />
+			</div>
+
+			<div class="form-group">
+				<input type="submit" name="submit" class="btn btn-primary" style="width: 20em; margin: 0;">
+			</div>
+		</form>
 	</div>
-
-	<table>
-		<form method="post"  name="register">
-	<!--display validation errors here-->
-		<!-- <?php include('errors.php') ?> -->
-		
-			<tr>
-				<div class="input-group">
-					<td>
-						<label>FULL NAME</label>
-					</td>
-					<td>
-						<input type="varchar" name="user_name" value="">
-					</td>
-				</div>
-			</tr>
-
-			<tr>
-				<div class="input-group">
-					<td>
-						<label>ADDRESS</label>
-					</td>
-					<td>
-						<input type="varchar" name="user_address" value="">
-					</td>
-				</div>
-			</tr>
-			<tr>
-				<div class="input-group">
-					<td><label>EMAIL ID:</label></td>
-					<td><input type="varchar" name="user_emailid" value=""></td>
-				</div>
-			</tr>
-			<tr>
-				<div class="input-group">
-					<td><label>MOBILE NUMBER:</label></td>
-					<td><input type="int" name="user_mobilenumber" value=""></td>
-				</div>
-			</tr>
-
-			<tr>
-				<div class="input-group">
-					<td><label>PASSWORD</label></td>
-					<td><input type="password"  name="password1" value=""></td>
-				</div>
-			</tr>
-
-			<tr>
-				<div class="input-group">
-					<td><label>CONFIRM PASSWORD</label></td>
-					<td><input type="password" name="password2" value=""></td>
-				</div>
-			</tr>
-
-			<tr>
-				<div class="input-group">
-					<td><button type="submit" class="btn" name="submit_register">REGISTER</button></td>
-				</div>
-			</tr>
-			<tr>
-				<div class="">
-					<td>Already a member? <a href="login.php">Login</a></td>
-				</div>
-			</tr>
-		</form>		
-	</table>
 
 	<footer class="page-footer font-small stylish-color-dark pt-4 foot">
 
@@ -396,34 +367,21 @@
 
 </body>
 </html>
-<?php
-	include 'connect.php';
-	if (isset($_POST['submit_register'])) {
+<?php 
+	if (isset($_POST['submit'])) {
 		# code...
-		$user_name=$_POST['user_name'];
-			$user_address=$_POST['user_address'];
-			$user_emailid=$_POST['user_emailid'];
-			$user_mobilenumber=$_POST['user_mobilenumber'];
-			$password1=$_POST['password1'];
-			$password2=$_POST['password1'];
+		$fullname = $_POST['fname'];
+		$address = $_POST['address'];
+		$email = $_POST['email'];
+		$number = $_POST['number'];
+		$query = "UPDATE user_details SET user_name='$fullname', user_address = '$address', user_emailid='$email', user_mobilenumber = '$number' WHERE user_id = '$id'";
+		$result = mysqli_query($db,$query) or die(mysqli_error($db));
+		?>
+		<script type="text/javascript">
+			alert("Update Successfull");
+			window.location = 'index.php'
+		</script>
 
-			if($password1 != $password2){
-				?>
-				<script type="text/javascript">
-					alert("The passwords do not match");
-				</script>
-				<?php
-			}else{
-				$query = "INSERT INTO user_details(user_name,user_address,user_emailid,user_mobilenumber,user_password) VALUES ('$user_name','$user_address','$user_emailid','$user_mobilenumber','$password1')";
-			mysqli_query($db,$query) or die('Error in updating database');
-			?>
-			<script type="text/javascript">
-				alert("Successfully Added.");
-				window.location = 'login.php';
-			</script>
-			<?php
-			}
-
-			
+		<?php
 	}
 ?>

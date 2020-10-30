@@ -1,3 +1,24 @@
+<?php  
+	
+	session_start();
+	if(!isset($_SESSION['id'])){
+		$_SESSION['msg'] = 'You must login first';
+		header('location: login.php');
+	}
+
+	if (isset($_GET['logout'])) {
+		# code...
+		session_destroy();
+		unset($_SESSION['id']);
+		header('location: login.php');
+	}
+?>
+<?php 
+	if (isset($_GET['success']) && $_GET['success']==1 ){
+		# code...
+		echo "success";
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -214,9 +235,23 @@
 		.foot{
 			background-color: lightgrey;
 		}
+		
 	</style>
 </head>
 <body >
+	<div class="content">
+		<?php if (isset($_SESSION['success'])): ?>
+			<div class="error success">
+				<h3>
+					<?php  
+						echo $_SESSION['success'];
+						unset($_SESSION['success']);
+					?>
+				</h3>
+			</div>
+		<?php endif?>
+	</div>
+
 	<nav class="navbar navbar-expand-lg">
 	<div class="container navigation">
 	  <a class="navbar-brand logo" href="index.php">
@@ -230,7 +265,7 @@
 	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
 	    <ul class="navbar-nav ml-auto">
 	      <li class="nav-item active px-2">
-	        <a class="nav-link active-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+	        <a class="nav-link active-link" href="#">Home <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item px-2">
 	        <a class="nav-link" href="menu.php">Menu</a>
@@ -239,13 +274,17 @@
 	        <a class="nav-link" href="about_us.php">About</a>
 	      </li>
 	      <li class="nav-item px-2">
-	        <a class="nav-link" href="contact_us.php">Contact Us</a>
+	        <a class="nav-link" href="contactus.php">Contact Us</a>
 	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="#">Log in</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="#">Sign Up</a>
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          My Account
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	          <a class="dropdown-item" href="profile.php">Profile</a>
+	          <a class="dropdown-item" href="#">My Orders</a>
+	          <a class="dropdown-item" href="logout.php">LogOut</a>
+	        </div>
 	      </li>
 
 
