@@ -11,145 +11,58 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 	<style type="text/css">
-
 		body{
-			background-image: url(./images/bg11.jpg);
-		}
-
-		.logo img{
-			height:55px;
-		}
-
-				.nav-link{
-			padding: 8px 10px 8px !important;
-		}
-
-		.navigation a{
-			font-size: 17px;
-			color: black;
-		}
-
-		.navigation a:hover{
-			color: #ff5c33;
-		}
-
-
-		.navigation a.active-link{
-			background-color: #ff5c33;
-			color: 	white;
-			border-radius: 5px;
-			
-		}
-
-		.jumbotron{
-			background-image: url('./images/restuarant.jpg');
-			height: 400px;
+			background-image: url(./images/food.jpeg);
 			background-position: center;
-			opacity: 85%;
-			filter: blur(5px);
-
 		}
 
-		.detail{
-			margin-top: 50px;
-			margin-bottom: 20px;
+		.header{
+			text-align: center;
+			font-family: 'Merriweather', serif;
+			letter-spacing: 1px;
 		}
 
-		.im{
-			height: 450px;
+		.form1{
+			margin-top: 20px;
+			background-color: white;
+			width: 40%;
+			margin: auto;
+			display: block;
+			padding: 20px;
+			margin-bottom: 40px;
+		}
+
+		.bar{
+			background-image: url(./images/bg11.jpg);
+			margin-bottom: 40px;
+		}
+
+		.bar img{
+			width: 20%;
+			margin: auto;
+			display: block;
 			margin-bottom: 10px;
+			padding: 5px;
 		}
 
-
-		.leads{
-			margin-top: 10px;
-			text-align: center;
-			font-size: 30px; 
-			font-weight: 700;
-			background: rgb(0, 0, 0);
-  			background: rgba(0, 0, 0, 0.15); 
-			color: #ff3300;
-			font-family: 'Merriweather', serif;
-		}
-
-
-		.foodv video{
-			width: 90%;
-			margin: auto;
-			display: block;
-			margin-right: 0px;
-			margin-bottom: 30px;
-		}
-
-		h3{
-			font-family: 'Merriweather', serif;
-			margin-top: 30px;
-			text-align: center;
-			margin-bottom: 40px;
-			padding: 10px;
-			font-weight: bolder;
-
-		}
-
-		.cheff{
-			font-family: 'Merriweather', serif;
-			background: rgb(0, 0, 0);
-  			background: rgba(0, 0, 0, 0.15); 
-			color: #ff3300;
-			margin-top: 30px;
-			}
-
-		.chef{
-			margin-bottom: 50px;
-
-		}
-
-		.chef p{
-			font-family: 'Merriweather', serif;
-			margin-top: 10px;
-			font-style: italic;
-			text-align: center;
-			font-size: 18px;
-		}
-
-		.test{
-			font-family: 'Merriweather', serif;
-			background: rgb(0, 0, 0);
-  			background: rgba(0, 0, 0, 0.15); 
-			color: #ff3300;
-			font-weight: bolder;
-		}
-
-		.col{
-			margin: auto;
-			display: block;
-		}
-
-		.card{
-			background-color: #d9d9d9;
-			margin-top: 20px;
-			border: 0px;
-			margin-bottom: 40px;
-		}
-
-		.card img{
-			width: 70%;
-			border-radius: 50%;
-			margin: auto;
-			margin-top: 20px;
-		}
-
-		.card p{
-			font-style: italic;
+		td{
 			padding: 10px;
 		}
 
-
-		.name{
-			color: #ff471a;
-			font-weight: bold;
-			text-align: right;
+		.btn1{
+			background-color:#ff5c33;
+			color: white;
+			width: 30%;
+			margin: auto;
+			display: block;
+			margin-top: 10px;
+			margin-bottom: 20px
 		}
+
+		.btn1:hover{
+			background-color: #404040;
+		}
+
 
 		.fa{
 			font-size: 30px;
@@ -163,113 +76,61 @@
 	</style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg">
-	<div class="container navigation">
-	  <a class="navbar-brand logo" href="index.php">
-	  	<img src="./images/logo21.png">
-	  </a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+	<div class="container-fluid bar">
+		<img src="./images/logo21.png">
+	</div>
 
-
-	  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-	    <ul class="navbar-nav ml-auto">
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="menu.php">Menu</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="about_us.php">About</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="contactus.php">Contact Us</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="login.php">Log in</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link  active-link" href="signup.php">Sign Up</a>
-	      </li>
-
-
-	    </ul>
-	  	</div>
-	  	</div>
-	</nav>
-
+	<div class="form1">
 	<div class="header">
-		<h1>Registeration</h1>	
-		<!-- <a href="index.php"><button class="button button4">Back to Home</button></a> -->	
+		<h1>Registeration</h1>		
 	</div>
 
 	<table>
 		<form method="post"  name="register">
-	<!--display validation errors here-->
-		<!-- <?php include('errors.php') ?> -->
 		
 			<tr>
-				<div class="input-group">
-					<td>
-						<label>FULL NAME</label>
-					</td>
-					<td>
-						<input type="varchar" name="user_name" value="">
-					</td>
-				</div>
+				<td>
+					<label>Full Name</label>
+				</td>
+				<td>
+					<input type="varchar" name="user_name" value="">
+				</td>
 			</tr>
 
 			<tr>
-				<div class="input-group">
-					<td>
-						<label>ADDRESS</label>
-					</td>
-					<td>
-						<input type="varchar" name="user_address" value="">
-					</td>
-				</div>
+				<td>
+					<label>Address</label>
+				</td>
+				<td>
+					<input type="varchar" name="user_address" value="">
+				</td>
 			</tr>
 			<tr>
-				<div class="input-group">
-					<td><label>EMAIL ID:</label></td>
-					<td><input type="varchar" name="user_emailid" value=""></td>
-				</div>
+				<td><label>Email Id</label></td>
+				<td><input type="varchar" name="user_emailid" value=""></td>
 			</tr>
 			<tr>
-				<div class="input-group">
-					<td><label>MOBILE NUMBER:</label></td>
-					<td><input type="int" name="user_mobilenumber" value=""></td>
-				</div>
+				<td><label>Mobile Number</label></td>
+				<td><input type="int" name="user_mobilenumber" value=""></td>
 			</tr>
 
 			<tr>
-				<div class="input-group">
-					<td><label>PASSWORD</label></td>
-					<td><input type="password"  name="password1" value=""></td>
-				</div>
+				<td><label>Password</label></td>
+				<td><input type="password"  name="password1" value=""></td>
 			</tr>
 
 			<tr>
-				<div class="input-group">
-					<td><label>CONFIRM PASSWORD</label></td>
-					<td><input type="password" name="password2" value=""></td>
-				</div>
+				<td><label>Confirm Password</label></td>
+				<td><input type="password" name="password2" value=""></td>
 			</tr>
 
-			<tr>
-				<div class="input-group">
-					<td><button type="submit" class="btn" name="submit_register">REGISTER</button></td>
-				</div>
-			</tr>
-			<tr>
-				<div class="">
-					<td>Already a member? <a href="login.php">Login</a></td>
-				</div>
-			</tr>
+		</table>
+			<div><button type="submit" class="btn btn1" name="submit_register">REGISTER</button></div>
+			
+			<a href="login.php">Already a member? Login</a>
 		</form>		
-	</table>
+
+	</div>
 
 	<footer class="page-footer font-small stylish-color-dark pt-4 foot">
 
@@ -361,20 +222,7 @@
 	    <!-- Grid row -->
 
 	  </div>
-	  <!-- Footer -->
 
-	  <!-- <hr> -->
-
-	  <!-- Call to action -->
-	<!--   <ul class="list-unstyled list-inline text-center py-2">
-	    <li class="list-inline-item">
-	      <h5 class="mb-1">Register for free</h5>
-	    </li>
-	    <li class="list-inline-item">
-	      <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-	    </li>
-	  </ul> -->
-	  <!-- Call to action -->
 
 	  <hr>
 
@@ -415,11 +263,11 @@
 				<?php
 			}else{
 				$query = "INSERT INTO user_details(user_name,user_address,user_emailid,user_mobilenumber,user_password) VALUES ('$user_name','$user_address','$user_emailid','$user_mobilenumber','$password1')";
-			mysqli_query($db,$query) or die('Error in updating database');
+			mysqli_query($connect,$query) or die('Error in updating database');
 			?>
 			<script type="text/javascript">
-				alert("Successfully Added.");
 				window.location = 'login.php';
+				alert("Successfully Added.");
 			</script>
 			<?php
 			}

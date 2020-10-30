@@ -53,6 +53,10 @@
 			margin-bottom: 20px;
 		}
 
+		.detail p{
+			font-style: italic;
+		}
+
 		.im{
 			height: 450px;
 			margin-bottom: 10px;
@@ -248,13 +252,13 @@
 <div class="container detail">
 	<div class="row">
 	<div class="col-lg-4 align-self-center">
-	<h4>Hello</h4>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<h4>Since 2003</h4>
+	<p>" The tiny café huddled despondent among the huge city buildings. Hundreds of people rushed by it, outside on the crowded street. The half a dozen customers glanced up as the door swung open, heralded by a blast of cold wind. Unlike the outside, the interior of the café was warm and cheery, with bright lights and colourful walls. The customers returned to their conversations as the door swung closed behind the new entrant and the cold breeze was forgotten. "</p>
 	</div>
 
 	<div class="col-lg-8">
 		<div class="foodv">
-			<video muted controls>
+			<video muted controls autoplay>
 				<source src="./images/foodvideo1.mp4" type="video/mp4">
  				Your browser does not support the video tag.
 			</video>

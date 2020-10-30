@@ -1,5 +1,3 @@
-<?php include('connect.php')?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,16 +9,21 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 	<style type="text/css">
-
 		body{
-			background-image: url(./images/bg11.jpg);
+			overflow-x: hidden;
+			background-image: url(./images/food.jpeg);
+			background-position: center;
 		}
 
 		.logo img{
 			height:55px;
 		}
 
-				.nav-link{
+		.navbar{
+			background-image: url(./images/bg1.jpg);
+			margin-bottom: 40px;
+		}
+		.nav-link{
 			padding: 8px 10px 8px !important;
 		}
 
@@ -41,115 +44,53 @@
 			
 		}
 
-		.jumbotron{
-			background-image: url('./images/restuarant.jpg');
-			height: 400px;
-			background-position: center;
-			opacity: 85%;
-			filter: blur(5px);
-
+		.header{
+			text-align: center;
+			font-family: 'Merriweather', serif;
+			letter-spacing: 1px;
 		}
 
-		.detail{
-			margin-top: 50px;
-			margin-bottom: 20px;
+		.form1{
+			margin-top: 20px;
+			background-color: white;
+			width: 40%;
+			margin: auto;
+			display: block;
+			padding: 25px;
+			margin-bottom: 40px;
 		}
 
-		.im{
-			height: 450px;
+		.bar{
+			background-image: url(./images/bg11.jpg);
+			margin-bottom: 40px;
+		}
+
+		.bar img{
+			width: 20%;
+			margin: auto;
+			display: block;
 			margin-bottom: 10px;
+			padding: 5px;
 		}
 
-
-		.leads{
-			margin-top: 10px;
-			text-align: center;
-			font-size: 30px; 
-			font-weight: 700;
-			background: rgb(0, 0, 0);
-  			background: rgba(0, 0, 0, 0.15); 
-			color: #ff3300;
-			font-family: 'Merriweather', serif;
-		}
-
-
-		.foodv video{
-			width: 90%;
-			margin: auto;
-			display: block;
-			margin-right: 0px;
-			margin-bottom: 30px;
-		}
-
-		h3{
-			font-family: 'Merriweather', serif;
-			margin-top: 30px;
-			text-align: center;
-			margin-bottom: 40px;
-			padding: 10px;
-			font-weight: bolder;
-
-		}
-
-		.cheff{
-			font-family: 'Merriweather', serif;
-			background: rgb(0, 0, 0);
-  			background: rgba(0, 0, 0, 0.15); 
-			color: #ff3300;
-			margin-top: 30px;
-			}
-
-		.chef{
-			margin-bottom: 50px;
-
-		}
-
-		.chef p{
-			font-family: 'Merriweather', serif;
-			margin-top: 10px;
-			font-style: italic;
-			text-align: center;
-			font-size: 18px;
-		}
-
-		.test{
-			font-family: 'Merriweather', serif;
-			background: rgb(0, 0, 0);
-  			background: rgba(0, 0, 0, 0.15); 
-			color: #ff3300;
-			font-weight: bolder;
-		}
-
-		.col{
-			margin: auto;
-			display: block;
-		}
-
-		.card{
-			background-color: #d9d9d9;
-			margin-top: 20px;
-			border: 0px;
-			margin-bottom: 40px;
-		}
-
-		.card img{
-			width: 70%;
-			border-radius: 50%;
-			margin: auto;
-			margin-top: 20px;
-		}
-
-		.card p{
-			font-style: italic;
+		td{
 			padding: 10px;
 		}
 
-
-		.name{
-			color: #ff471a;
-			font-weight: bold;
-			text-align: right;
+		.btn1{
+			background-color:#ff5c33;
+			color: white;
+			width: 30%;
+			margin: auto;
+			display: block;
+			margin-top: 10px;
+			margin-bottom: 20px
 		}
+
+		.btn1:hover{
+			background-color: #404040;
+		}
+
 
 		.fa{
 			font-size: 30px;
@@ -204,42 +145,31 @@
 	  	</div>
 	</nav>
 
+<div class="jumb">
+</div>
+<form method="post"  name="register">
+	<div class="form1">
 	<table>
-		<form method="post"  name="register">
-	<!--display validation errors here-->
-		<!-- <?php include('errors.php') ?> -->
-		
-			<tr>
-				<div class="input-group">
-					<td>
-						<label>FULL NAME</label>
-					</td>
-					<td>
-						<input type="varchar" name="contact_name" value="">
-					</td>
-				</div>
-			</tr>
-
-			<tr>
-				<div class="input-group">
-					<td><label>EMAIL ID:</label></td>
-					<td><input type="varchar" name="contact_emailid" value=""></td>
-				</div>
-			</tr>
-			<tr>
-				<div class="input-group">
-					<td><label>MOBILE NUMBER:</label></td>
-					<td><input type="int" name="contact_mobilenumber" value=""></td>
-				</div>
-			</tr>
-			<tr>
-				<div class="input-group">
-					<td><button type="submit" class="btn" name="submit_contactus">Send</button></td>
-				</div>
-			</tr>
-		</form>		
-	</table>
-
+		<tr>
+			<td><label>Full Name:</label></td>
+			<td><input type="varchar" name="contact_name" value=""></td>
+		</tr>
+		<tr>
+			<td><label>Email Id:</label></td>
+			<td><input type="varchar" name="contact_emailid" value=""></td>
+		</tr>
+		<tr>
+			<td><label>Mobile Number:</label></td>
+			<td><input type="int" name="contact_mobilenumber" value=""></td>
+		</tr>
+		<tr>
+			<td><label>Your query/feedback:</label></td>
+			<td><textarea rows="4" cols="23" name="query" value=""></textarea></td>
+		</tr>
+		</table>
+			<button type="submit" class="btn btn1" name="submit_contactus">Send</button>
+	</form>
+	</div>
 	<footer class="page-footer font-small stylish-color-dark pt-4 foot">
 
 	  <!-- Footer -->
@@ -307,16 +237,6 @@
 		        <i class="fa fa-youtube-play"> </i>
 		      </a>
 		    </li>
-		<!--     <li class="list-inline-item">
-		      <a class="btn-floating btn-li mx-1">
-		        <i class="fab fa-linkedin-in"> </i>
-		      </a>
-		    </li>
-		    <li class="list-inline-item">
-		      <a class="btn-floating btn-dribbble mx-1">
-		        <i class="fab fa-dribbble"> </i>
-		      </a>
-		    </li> -->
 	 		</ul>
 
 	      </div>
@@ -330,33 +250,19 @@
 	    <!-- Grid row -->
 
 	  </div>
-	  <!-- Footer -->
-
-	  <!-- <hr> -->
-
-	  <!-- Call to action -->
-	<!--   <ul class="list-unstyled list-inline text-center py-2">
-	    <li class="list-inline-item">
-	      <h5 class="mb-1">Register for free</h5>
-	    </li>
-	    <li class="list-inline-item">
-	      <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-	    </li>
-	  </ul> -->
-	  <!-- Call to action -->
 
 	  <hr>
 
 	  <!-- Copyright -->
 	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-	    <a href="https://mdbootstrap.com/">BayViewCafe.com</a>
+	    <a href="#">BayViewCafe.com</a>
 	  </div>
 	  <!-- Copyright -->
 
 	</footer>
 	<!-- Footer -->
 
-
+<?php include('connect.php')?>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -365,3 +271,26 @@
 
 </body>
 </html>
+
+<?php
+	include 'connect.php';
+	if (isset($_POST['submit_contactus'])) {
+		$contact_name=$_POST['contact_name'];
+		$contact_emailid=$_POST['contact_emailid'];
+		$contact_mobilenumber=$_POST['contact_mobilenumber'];
+		$contact_query=$_POST['query'];
+
+		echo $contact_name,$contact_emailid,$contact_mobilenumber,$contact_query;
+		$q = "INSERT INTO feedback(`name`, `email`, `mnumber`, `query`) VALUES ('$contact_name','$contact_emailid','$contact_mobilenumber','$contact_query')";
+		$res = mysqli_query($connect,$q) or die('Error in updating database');
+		?>
+		if(res)
+		<script type="text/javascript">
+			window.location = 'index.php';
+			alert("Your query/feedback has been sent");
+		</script>
+		<?php
+
+			
+	}
+?>

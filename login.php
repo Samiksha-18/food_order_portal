@@ -7,14 +7,22 @@
 		$query = mysqli_query($connect,"SELECT* FROM user_details WHERE user_emailid = '$email' AND user_password = '$pass'");
 				$num_rows = mysqli_num_rows($query);
 				$row = mysqli_fetch_array($query);
-				$_SESSION["id"] = $row['user_id'];
-				$_SESSION["success"] = 'You are now logged in';
-				echo $row['user_id'];
 				if ($num_rows>0) {
+					$_SESSION["id"] = $row['user_id'];
+					$_SESSION["success"] = 'You are now logged in';
+					echo $row['user_id'];
 					?>
 					<script>
 						alert('Successfully logged in');
-						document.location = 'index.php'
+						document.location = 'index.php';
+					</script>
+					<?php
+				}
+				else
+				{
+					?>
+					<script>
+						alert('Invalid Username or Password');
 					</script>
 					<?php
 				}
@@ -34,143 +42,57 @@
 	<style type="text/css">
 
 		body{
-			background-image: url(./images/bg11.jpg);
-		}
-
-		.logo img{
-			height:55px;
-		}
-
-				.nav-link{
-			padding: 8px 10px 8px !important;
-		}
-
-		.navigation a{
-			font-size: 17px;
-			color: black;
-		}
-
-		.navigation a:hover{
-			color: #ff5c33;
-		}
-
-
-		.navigation a.active-link{
-			background-color: #ff5c33;
-			color: 	white;
-			border-radius: 5px;
-			
-		}
-
-		.jumbotron{
-			background-image: url('./images/restuarant.jpg');
-			height: 400px;
+			background-image: url(./images/food.jpeg);
 			background-position: center;
-			opacity: 85%;
-			filter: blur(5px);
-
 		}
 
-		.detail{
-			margin-top: 50px;
-			margin-bottom: 20px;
+		.header{
+			text-align: center;
+			font-family: 'Merriweather', serif;
+			letter-spacing: 1px;
 		}
 
-		.im{
-			height: 450px;
+		.form1{
+			margin-top: 20px;
+			background-color: white;
+			width: 30%;
+			margin: auto;
+			display: block;
+			padding: 20px;
+			margin-bottom: 40px;
+		}
+
+		.bar{
+			background-image: url(./images/bg11.jpg);
+			margin-bottom: 40px;
+		}
+
+		.bar img{
+			width: 20%;
+			margin: auto;
+			display: block;
 			margin-bottom: 10px;
+			padding: 5px;
 		}
 
-
-		.leads{
-			margin-top: 10px;
-			text-align: center;
-			font-size: 30px; 
-			font-weight: 700;
-			background: rgb(0, 0, 0);
-  			background: rgba(0, 0, 0, 0.15); 
-			color: #ff3300;
-			font-family: 'Merriweather', serif;
+		td{
+			padding: 15px;
 		}
 
-
-		.foodv video{
-			width: 90%;
+		.btn1{
+			background-color:#ff5c33;
+			color: white;
+			width: 30%;
 			margin: auto;
 			display: block;
-			margin-right: 0px;
-			margin-bottom: 30px;
-		}
-
-		h3{
-			font-family: 'Merriweather', serif;
-			margin-top: 30px;
-			text-align: center;
-			margin-bottom: 40px;
-			padding: 10px;
-			font-weight: bolder;
-
-		}
-
-		.cheff{
-			font-family: 'Merriweather', serif;
-			background: rgb(0, 0, 0);
-  			background: rgba(0, 0, 0, 0.15); 
-			color: #ff3300;
-			margin-top: 30px;
-			}
-
-		.chef{
-			margin-bottom: 50px;
-
-		}
-
-		.chef p{
-			font-family: 'Merriweather', serif;
 			margin-top: 10px;
-			font-style: italic;
-			text-align: center;
-			font-size: 18px;
+			margin-bottom: 20px
 		}
 
-		.test{
-			font-family: 'Merriweather', serif;
-			background: rgb(0, 0, 0);
-  			background: rgba(0, 0, 0, 0.15); 
-			color: #ff3300;
-			font-weight: bolder;
+		.btn1:hover{
+			background-color: #404040;
 		}
 
-		.col{
-			margin: auto;
-			display: block;
-		}
-
-		.card{
-			background-color: #d9d9d9;
-			margin-top: 20px;
-			border: 0px;
-			margin-bottom: 40px;
-		}
-
-		.card img{
-			width: 70%;
-			border-radius: 50%;
-			margin: auto;
-			margin-top: 20px;
-		}
-
-		.card p{
-			font-style: italic;
-			padding: 10px;
-		}
-
-
-		.name{
-			color: #ff471a;
-			font-weight: bold;
-			text-align: right;
-		}
 
 		.fa{
 			font-size: 30px;
@@ -184,78 +106,34 @@
 	</style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg">
-	<div class="container navigation">
-	  <a class="navbar-brand logo" href="index.php">
-	  	<img src="./images/logo21.png">
-	  </a>
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
-
-
-	  <!-- <div class="collapse navbar-collapse" id="navbarNavDropdown">
-	    <ul class="navbar-nav ml-auto">
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="menu.php">Menu</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="about_us.php">About</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="contactus.php">Contact Us</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link active-link" href="login.php">Log in</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="signup.php">Sign Up</a>
-	      </li>
-
-
-	    </ul>
-	  	</div> -->
-	  	</div>
-	</nav>
-
-	<div class="header">
-		<h1>LogIn</h1>	
-		<!-- <a href="index.php"><button class="button button4">Back to Home</button></a> -->	
+	<div class="container-fluid bar">
+		<img src="./images/logo21.png">
 	</div>
+
+
+	<div class="container form1">
+	<div class="header">
+		<h2>LOG IN</h2>		
+	</div>
+
 
 	<table>
 		<form method="post">
-	<!--display validation errors here-->
-		<!-- <?php include('errors.php') ?> -->
 			<tr>
-				<div class="input-group">
-					<td><label>EMAIL ID</label></td>
-					<td><input type="varchar" required="required"name="login_email" value=""></td>
-				</div>
+				<td><label>Email Id</label></td>
+				<td><input type="varchar" required="required"name="login_email" value=""></td>
 			</tr>
 			
 			<tr>
-				<div class="input-group">
-					<td><label>Password</label></td>
-					<td><input type="password" required="required" name="login_password" ></td>
-			</div>
+				<td><label>Password</label></td>
+				<td><input type="password" required="required" name="login_password" ></td>
 			</tr>
-			<tr>
-				<div class="input-group">
-					<td><button type="submit" class="btn" name="submit_login">Login</button></td>
-				</div>
-			</tr>
-			<tr>
-				<div class="">
-					<td>Not a member? <a href="signup.php">Sign Up</a></td>
-				</div>
-			</tr>
+			</table>
+			<div><button type="submit" class="btn btn1" name="submit_login">Login</button></div>
+			<a href="signup.php">Not a member? Sign Up</a>
 			
 		</form>		
-	</table>
+	</div>
 
 	<footer class="page-footer font-small stylish-color-dark pt-4 foot">
 
@@ -324,16 +202,6 @@
 		        <i class="fa fa-youtube-play"> </i>
 		      </a>
 		    </li>
-		<!--     <li class="list-inline-item">
-		      <a class="btn-floating btn-li mx-1">
-		        <i class="fab fa-linkedin-in"> </i>
-		      </a>
-		    </li>
-		    <li class="list-inline-item">
-		      <a class="btn-floating btn-dribbble mx-1">
-		        <i class="fab fa-dribbble"> </i>
-		      </a>
-		    </li> -->
 	 		</ul>
 
 	      </div>
@@ -347,20 +215,6 @@
 	    <!-- Grid row -->
 
 	  </div>
-	  <!-- Footer -->
-
-	  <!-- <hr> -->
-
-	  <!-- Call to action -->
-	<!--   <ul class="list-unstyled list-inline text-center py-2">
-	    <li class="list-inline-item">
-	      <h5 class="mb-1">Register for free</h5>
-	    </li>
-	    <li class="list-inline-item">
-	      <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-	    </li>
-	  </ul> -->
-	  <!-- Call to action -->
 
 	  <hr>
 
