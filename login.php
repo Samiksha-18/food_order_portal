@@ -4,7 +4,7 @@
 	if(isset($_POST['submit_login'])){
 		$email = $_POST['login_email'];
 		$pass = $_POST['login_password'];
-		$query = mysqli_query($connect,"SELECT* FROM user_details WHERE user_emailid = '$email' AND user_password = '$pass'");
+		$query = mysqli_query($db,"SELECT* FROM user_details WHERE user_emailid = '$email' AND user_password = '$pass'");
 				$num_rows = mysqli_num_rows($query);
 				$row = mysqli_fetch_array($query);
 				if ($num_rows>0) {
@@ -44,6 +44,7 @@
 		body{
 			background-image: url(./images/food.jpeg);
 			background-position: center;
+			overflow-x: hidden;
 		}
 
 		.header{
@@ -65,6 +66,7 @@
 		.bar{
 			background-image: url(./images/bg11.jpg);
 			margin-bottom: 40px;
+			margin-top: 0px;
 		}
 
 		.bar img{
@@ -105,7 +107,7 @@
 		}
 	</style>
 </head>
-<body>
+	<body>
 	<div class="container-fluid bar">
 		<img src="./images/logo21.png">
 	</div>

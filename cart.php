@@ -1,3 +1,106 @@
+<?php
+	include 'connect.php';
+	session_start();
+	$id = $_SESSION['id'];
+
+
+	if (isset($_POST['plus'])) {
+		# code...
+		// header('location: index.php');
+		$pid = $_POST['plus'];
+		// echo $pid;
+		$res = mysqli_query($db,"SELECT * FROM cart WHERE pid = '$pid'");
+		$row = mysqli_fetch_array($res);
+
+		$quantity = $row[5];
+		$quantity = $quantity +1;
+
+		$query = "UPDATE cart SET qty = '$quantity' WHERE pid = '$pid'";
+		if (mysqli_query($db,$query)) {
+			# code...
+			?>
+			<?php
+		}
+		else{
+			?>
+				<script type="text/javascript">
+					alert("failed!")
+				</script>
+			<?php
+		}
+
+	}
+	if (isset($_POST['minus'])) {
+		# code...
+		// header('location: index.php');
+		$pid = $_POST['minus'];
+		// echo $pid;
+		$res = mysqli_query($db,"SELECT * FROM cart WHERE pid = '$pid'");
+		$row = mysqli_fetch_array($res);
+
+		$quantity = $row[5];
+		$quantity = $quantity - 1;
+
+		$query = "UPDATE cart SET qty = '$quantity' WHERE pid = '$pid'";
+		if (mysqli_query($db,$query)) {
+			# code...
+			?>
+			<?php
+		}
+		else{
+			?>
+				<script type="text/javascript">
+					alert("failed!")
+				</script>
+			<?php
+		}
+
+	}
+
+	if (isset($_POST['checkout'])) {
+		# code...
+		$u_id = $id;
+		$query = mysqli_query($db,"SELECT * FROM cart WHERE u_id = '$u_id'and rowstate = 1 and qty > 0");
+		if (!empty($query)) {
+			# code...
+			while ($row=mysqli_fetch_array($query)){
+				$pid = $row['pid'];
+				$qty = $row['qty'];
+				$pname = $row['pname'];
+				$product_price = $row['qty'] * $row['price'];
+				$query1 = "INSERT INTO orders (order_uid,order_pid,order_pname,order_price,order_qty)VALUES ('$u_id','$pid','$pname','$product_price','$qty')";
+				if (mysqli_query($db,$query1)) {
+					?>
+						<script type="text/javascript">
+							alert("Success!");
+						</script>
+					<?php
+					$query2 = "DELETE FROM cart WHERE u_id = '$u_id'";
+					if (mysqli_query($db,$query2)) {
+						?>
+							<script type="text/javascript">
+								alert("rowstate changed");
+								document.location = 'index.php';
+
+							</script>
+						<?php
+					}
+				}
+				else{
+					?>
+						<script type="text/javascript">
+							alert("failed!");
+						</script>
+					<?php
+				}
+			}
+		}
+		else{
+			echo "No Records.";
+		}
+	}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,12 +143,63 @@
 			border-radius: 5px;
 			
 		}
+
+
+	    .dropdown-menu a:active{
+	      background-color: #404040;
+	    }
+
+	    .nav-item .fa{
+	      font-size: 35px;
+	      margin-top: 2px;
+	      color: #ff5c33;
+	    }
+
+		.card {
+			margin-bottom: 20px;
+	      text-align: center;
+	    }
+	    
+	    .card img{
+	      height: 270px;
+	    }
+
+	    .btn1{
+			background-color:#ff5c33;
+			color: white;
+			width: 15%;
+			border-color: #ff5c33;
+			margin-left: 10px;
+		}
+
+		.pr{
+			background-color: #ff5c33;
+			text-align: right;
+			padding: 8px;
+			color: white;
+			font-weight: 700;
+			font-size: 20px;
+		}
+
+		.pr p{
+			margin-bottom: 0px;
+		}
+
+		.btn2{
+			background-color:#ff5c33;
+			color: white;
+			float: right;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			font-size: 18px;
+		}
 		.fa{
 			font-size: 30px;
 			margin-right: 10px;
 		}
 
 		.foot{
+			clear: both;
 			background-color: lightgrey;
 		}
 	</style>
@@ -75,13 +229,19 @@
 	      <li class="nav-item px-2">
 	        <a class="nav-link" href="contact_us.php">Contact Us</a>
 	      </li>
+	      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"a-expanded="false">
+            My Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="profile.php">Profile</a>
+            <a class="dropdown-item" href="orders.php">My Orders</a>
+            <a class="dropdown-item" href="logout.php">LogOut</a>
+          </div>
+        </li>
 	      <li class="nav-item px-2">
-	        <a class="nav-link" href="#">Log in</a>
-	      </li>
-	      <li class="nav-item px-2">
-	        <a class="nav-link" href="#">Sign Up</a>
-	      </li>
-
+          <a href="cart.php"><span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
+        </li>
 
 	    </ul>
 	  	</div>
@@ -89,43 +249,59 @@
 	</nav>
 
 
-<section class="container content-section">
-            <h2 class="section-header">CART</h2>
-            <div class="cart-row">
-                <span class="cart-item cart-header cart-column">ITEM</span>
-                <span class="cart-price cart-header cart-column">PRICE</span>
-                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
-            </div>
-            <div class="cart-items">
-                <div class="cart-row">
-                    <div class="cart-item cart-column">
-                        <img class="cart-item-image" src="images/f11.jpg" width="100" height="100">
-                        <span class="cart-item-title">Cheese Chicken Salad</span>
-                    </div>
-                    <span class="cart-price cart-column">$19.99</span>
-                    <div class="cart-quantity cart-column">
-                        <input class="cart-quantity-input" type="number" value="1">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
-                    </div>
-                </div>
-                <div class="cart-row">
-                    <div class="cart-item cart-column">
-                        <img class="cart-item-image" src="images/f21.jpg" width="100" height="100">
-                        <span class="cart-item-title">Triple Chocolate Truffle</span>
-                    </div>
-                    <span class="cart-price cart-column">$9.99</span>
-                    <div class="cart-quantity cart-column">
-                        <input class="cart-quantity-input" type="number" value="2">
-                        <button class="btn btn-danger" type="button">REMOVE</button>
-                    </div>
-                </div>
-            </div>
-            <div class="cart-total">
-                <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">$39.97</span>
-            </div>
-            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
-        </section>
+
+<div style="text-align: center; margin-bottom: 20px; font-size: 25px;background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.20);">
+  <h3 style="color: #ff3030; padding: 10px; font-family: 'Merriweather', serif;">My Cart</h3>
+</div>
+     <div class="container">
+      <div class="row">
+
+    <?php
+        $product= mysqli_query($db,"SELECT * FROM cart WHERE u_id='$id' and qty>=1"); 
+        $total_price = 0;
+        if (!empty($product)) { 
+        while ($row=mysqli_fetch_array($product)) {
+        	$product_price = $row['qty'] * $row['price'];
+        	$total_price = $total_price + $product_price;
+        ?>
+        <form method="post">
+	        <div class="col-lg-4">
+		        <div class="card" style="width: 18rem;">
+			        <img class="card-img-top shop-item-image" src="<?php echo $row['p_path']?>">
+			        <div class="card-body">
+			          <h5 class="card-title shop-item-title"><?php echo $row['pname']?>
+			          </h5>
+			          <div class="shop-item-details">
+				          <p class="shop-item-price">Quantity: <?php echo $row['qty'] ?>
+				       		<button type="submit" name="minus" class="btn1" value="<?php echo $row['pid'] ?>">-</button>
+				          	<button type="submit" name="plus" class="btn1" value="<?php echo $row['pid'] ?>">+</button>
+				          </p>
+				          <p class="shop-item-price">Price: <?php echo "Rs ".$product_price ?></p>
+			          </div>
+			        </div>
+		      	</div>
+	      	</div>
+	      </form>
+       <?php
+      }
+      ?>
+  </div>
+</div>
+<div class="container">
+      	<form method="post">
+      		<div class="pr">
+      		<p>Total Price: <?php echo $total_price?></p>
+      		</div>
+      		<button type="submit" class="btn btn2" name="checkout">Checkout</button>
+      	</form>
+      <?php
+  }  else {
+ echo "No Records.";
+
+  }
+  ?>
+  
+</div>
 
 
 
@@ -142,9 +318,7 @@
 
         <!-- Content -->
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Bay View Cafe</h5>
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <p> Hotel Harbour View rooftop, PJ Ramchandani Marg, Apollo Bandar, Colaba, Mumbai, Maharashtra 400001</p>
 
       </div>
       <!-- Grid column -->
@@ -196,15 +370,7 @@
 	        <i class="fa fa-youtube-play"> </i>
 	      </a>
 	    </li>
-	<!--     <li class="list-inline-item">
-	      <a class="btn-floating btn-li mx-1">
-	        <i class="fab fa-linkedin-in"> </i>
-	      </a>
-	    </li>
-	    <li class="list-inline-item">
-	      <a class="btn-floating btn-dribbble mx-1">
-	        <i class="fab fa-dribbble"> </i>
-	      </a>
+
 	    </li> -->
  		</ul>
 

@@ -1,3 +1,40 @@
+<?php
+	include 'connect.php';
+	session_start();
+	$id = $_SESSION['id'];
+	if (isset($_POST['submit_contactus'])) {
+		# code...
+		$fullname = $_POST['contact_name'];
+		$email = $_POST['contact_emailid'];
+		$number = $_POST['contact_mobilenumber'];
+		$feedback = $_POST['feedback'];
+
+		$query = "INSERT INTO contact (contact_uid,contact_fname,contact_email,contact_mobilenumber,contact_query) VALUES ('$id','$fullname','$email','$number','$feedback')";
+		$result = mysqli_query($db,$query);
+		if ($result) {
+			# code...
+			?>
+			<script type="text/javascript">
+				alert("Your query has been sent. You will be contacted shortly");
+				window.location = 'index.php';
+			</script>
+			<?php
+		}else{
+			?>
+			<script type="text/javascript">
+				alert("Error in sending your request. Please try again after a while");
+				window.location = 'index.php';
+			</script>
+			<?php
+		}
+
+
+
+	}
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +79,17 @@
 			color: 	white;
 			border-radius: 5px;
 			
+		}
+
+
+		.dropdown-menu a:active{
+			background-color: #404040;
+		}
+
+		.nav-item .fa{
+			font-size: 35px;
+			margin-top: 2px;
+			color: #ff5c33;
 		}
 
 		.header{
@@ -134,9 +182,12 @@
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	          <a class="dropdown-item" href="profile.php">Profile</a>
-	          <a class="dropdown-item" href="#">My Orders</a>
+	          <a class="dropdown-item" href="orders.php">My Orders</a>
 	          <a class="dropdown-item" href="logout.php">LogOut</a>
 	        </div>
+	      </li>
+	      <li class="nav-item px-2">
+	      	<a href="cart.php"><span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
 	      </li>
 
 
@@ -164,7 +215,7 @@
 		</tr>
 		<tr>
 			<td><label>Your query/feedback:</label></td>
-			<td><textarea rows="4" cols="23" name="query" value=""></textarea></td>
+			<td><textarea rows="4" cols="23" name="feedback" value=""></textarea></td>
 		</tr>
 		</table>
 			<button type="submit" class="btn btn1" name="submit_contactus">Send</button>
@@ -183,9 +234,7 @@
 
 	        <!-- Content -->
 	        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Bay View Cafe</h5>
-	        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-	          consectetur
-	          adipisicing elit.</p>
+	        <p>Hotel Harbour View rooftop, PJ Ramchandani Marg, Apollo Bandar, Colaba, Mumbai, Maharashtra 400001</p>
 
 	      </div>
 	      <!-- Grid column -->
@@ -262,8 +311,6 @@
 	</footer>
 	<!-- Footer -->
 
-<?php include('connect.php')?>
-
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -272,25 +319,3 @@
 </body>
 </html>
 
-<?php
-	include 'connect.php';
-	if (isset($_POST['submit_contactus'])) {
-		$contact_name=$_POST['contact_name'];
-		$contact_emailid=$_POST['contact_emailid'];
-		$contact_mobilenumber=$_POST['contact_mobilenumber'];
-		$contact_query=$_POST['query'];
-
-		echo $contact_name,$contact_emailid,$contact_mobilenumber,$contact_query;
-		$q = "INSERT INTO feedback(`name`, `email`, `mnumber`, `query`) VALUES ('$contact_name','$contact_emailid','$contact_mobilenumber','$contact_query')";
-		$res = mysqli_query($connect,$q) or die('Error in updating database');
-		?>
-		if(res)
-		<script type="text/javascript">
-			window.location = 'index.php';
-			alert("Your query/feedback has been sent");
-		</script>
-		<?php
-
-			
-	}
-?>

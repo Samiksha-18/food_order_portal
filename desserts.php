@@ -7,7 +7,7 @@
 
    <?php
         include('connect.php');
-        $product= mysqli_query($connect,"SELECT * FROM products WHERE category='desserts'"); 
+        $product= mysqli_query($db,"SELECT * FROM products WHERE category='desserts'"); 
 
         if (!empty($product)) { 
         while ($row=mysqli_fetch_array($product)) {

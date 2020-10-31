@@ -263,7 +263,7 @@
 				<?php
 			}else{
 				$query = "INSERT INTO user_details(user_name,user_address,user_emailid,user_mobilenumber,user_password) VALUES ('$user_name','$user_address','$user_emailid','$user_mobilenumber','$password1')";
-			mysqli_query($connect,$query) or die('Error in updating database');
+			mysqli_query($db,$query) or die('Error in updating database');
 			?>
 			<script type="text/javascript">
 				window.location = 'login.php';

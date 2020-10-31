@@ -53,8 +53,13 @@
 			margin-bottom: 20px;
 		}
 
+		.detail h6{
+			font-size: 14px;
+		}
+
 		.detail p{
 			font-style: italic;
+			text-align: center;
 		}
 
 		.im{
@@ -195,9 +200,12 @@
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	          <a class="dropdown-item" href="profile.php">Profile</a>
-	          <a class="dropdown-item" href="#">My Orders</a>
+	          <a class="dropdown-item" href="orders.php">My Orders</a>
 	          <a class="dropdown-item" href="logout.php">LogOut</a>
 	        </div>
+	      </li>
+	      <li class="nav-item px-2">
+	      	<a href="cart.php"><span style=" color:green; font-size:30px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
 	      </li>
 
 
@@ -215,18 +223,14 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>>
   </ol>
   <div class="carousel-inner im">
     <div class="carousel-item active">
       <img class="d-block w-100" src="./images/restuarant.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="./images/restuarant.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="./images/restuarant.jpg" alt="Third slide">
+      <img class="d-block w-100" src="./images/view11.jpg" alt="Second slide">
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -252,13 +256,16 @@
 <div class="container detail">
 	<div class="row">
 	<div class="col-lg-4 align-self-center">
-	<h4>Since 2003</h4>
-	<p>" The tiny café huddled despondent among the huge city buildings. Hundreds of people rushed by it, outside on the crowded street. The half a dozen customers glanced up as the door swung open, heralded by a blast of cold wind. Unlike the outside, the interior of the café was warm and cheery, with bright lights and colourful walls. The customers returned to their conversations as the door swung closed behind the new entrant and the cold breeze was forgotten. "</p>
+	<center><h4>WELCOME TO BAYVIEW</h4></center>
+	<center><h6><i>PREMIUM RESTAURANT IN THE HEART OF MUMBAI</i></h6></center>
+	<p>Our vision goes beyond just preparing quality, authentic, hygenic and mouth watering food.We specialise in preparing traditional pan-asian dishes from the asian subcontinent with a sophiticated approach and maintaing authencity so you can experince something unique.</p>
+	<p>Let us take you on a jouney to sublime your senses, tease your taste buds and discover true cultural food that cant be matched or replicated.
+	</p>
 	</div>
 
 	<div class="col-lg-8">
 		<div class="foodv">
-			<video muted controls autoplay>
+			<video muted controls>
 				<source src="./images/foodvideo1.mp4" type="video/mp4">
  				Your browser does not support the video tag.
 			</video>
@@ -304,7 +311,7 @@
 	<div class="card" style="">
   <img class="card-img-top" src="./images/cust41.jpg" alt="Card image cap">
   <div class="card-body">
-    <p class="card-text">"Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content."</p>
+    <p class="card-text">"The restaurent service and presentation was amazing the staff was efficient and so well mannered and kind.The service was quick and way professional the view is gorgeous!</p>
     <p class="name"> -Kirti Kulhari</p>
   </div>
 </div>
@@ -314,7 +321,7 @@
 <div class="card" style="">
   <img class="card-img-top" src="./images/cust2.jpg" alt="Card image cap">
   <div class="card-body">
-    <p class="card-text">"Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content."</p>
+    <p class="card-text">"I loved this hidden little gem , the food is delicious it has chilled vibe and the restaurent itself is absolutely beautiful. I would always prefer this restaurent over others."</p>
     <p class="name"> -Rohit Khandelwal</p>
   </div>
 </div>
@@ -324,7 +331,7 @@
 <div class="card" style="">
   <img class="card-img-top" src="./images/cust3.jpg" alt="Card image cap">
   <div class="card-body">
-    <p class="card-text">"Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content."</p>
+    <p class="card-text">"Been coming here for more than 10 years now and still love this place. I refuse to go to any other restaurent. Owners are always friendly and very welcoming to everyone."</p>
     <p class="name"> -Dolly Singh</p>
   </div>
 </div>

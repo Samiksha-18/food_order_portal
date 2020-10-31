@@ -1,3 +1,7 @@
+<?php
+  include 'connect.php';
+?>
+
 <div id="special">
 <div style="text-align: center; margin-bottom: 20px; font-size: 25px;background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.20);">
   <h3 style="color: #ff3030; padding: 10px; font-family: 'Merriweather', serif;">Chef's Special</h3>
@@ -5,8 +9,7 @@
 <div class="container" style="width:95%; margin: auto;">
 <div class="row sp">
     <?php
-        include('connect.php');
-        $product= mysqli_query($connect,"SELECT * FROM products WHERE category='special'"); 
+        $product= mysqli_query($db,"SELECT * FROM products WHERE category='special'"); 
 
         if (!empty($product)) { 
         while ($row=mysqli_fetch_array($product)) {

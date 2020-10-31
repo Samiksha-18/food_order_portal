@@ -65,6 +65,15 @@
 			
 		}
 
+		.dropdown-menu a:active{
+			background-color: #404040;
+		}
+
+		.nav-item .fa{
+			font-size: 35px;
+			margin-top: 2px;
+		}
+
 
 		.jumbotron{
 			background-image: url("./images/food61.jpg");
@@ -239,7 +248,7 @@
 	</style>
 </head>
 <body >
-	<div class="content">
+	<!-- <div class="content">
 		<?php if (isset($_SESSION['success'])): ?>
 			<div class="error success">
 				<h3>
@@ -250,7 +259,7 @@
 				</h3>
 			</div>
 		<?php endif?>
-	</div>
+	</div> -->
 
 	<nav class="navbar navbar-expand-lg">
 	<div class="container navigation">
@@ -282,9 +291,12 @@
 	        </a>
 	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 	          <a class="dropdown-item" href="profile.php">Profile</a>
-	          <a class="dropdown-item" href="#">My Orders</a>
+	          <a class="dropdown-item" href="orders.php">My Orders</a>
 	          <a class="dropdown-item" href="logout.php">LogOut</a>
 	        </div>
+	      </li>
+	      <li class="nav-item px-2">
+	      	<a href="cart.php"><span style=" color:#ff5c33;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
 	      </li>
 
 
@@ -295,12 +307,6 @@
 
 
 	<div class="jumbotron">
-	<div class="jumbtext">
-<!-- 	  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-	  <p style="margin-top: 20px;" >
-	    <a class="btn btn-dark btn-lg" href="#" role="button">Learn more</a>
-	  </p> -->
-	  </div>
 	</div>
 
 
@@ -402,9 +408,7 @@
 
         <!-- Content -->
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Bay View Cafe</h5>
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <p>Hotel Harbour View rooftop, PJ Ramchandani Marg, Apollo Bandar, Colaba, Mumbai, Maharashtra 400001</p>
 
       </div>
       <!-- Grid column -->
@@ -456,16 +460,6 @@
 	        <i class="fa fa-youtube-play"> </i>
 	      </a>
 	    </li>
-	<!--     <li class="list-inline-item">
-	      <a class="btn-floating btn-li mx-1">
-	        <i class="fab fa-linkedin-in"> </i>
-	      </a>
-	    </li>
-	    <li class="list-inline-item">
-	      <a class="btn-floating btn-dribbble mx-1">
-	        <i class="fab fa-dribbble"> </i>
-	      </a>
-	    </li> -->
  		</ul>
 
       </div>
@@ -478,21 +472,6 @@
     <!-- Grid row -->
 
   </div>
-  <!-- Footer -->
-
-  <!-- <hr> -->
-
-  <!-- Call to action -->
-<!--   <ul class="list-unstyled list-inline text-center py-2">
-    <li class="list-inline-item">
-      <h5 class="mb-1">Register for free</h5>
-    </li>
-    <li class="list-inline-item">
-      <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-    </li>
-  </ul> -->
-  <!-- Call to action -->
-
   <hr>
 
   <!-- Copyright -->
