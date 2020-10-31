@@ -56,6 +56,17 @@
 			
 		}
 
+		.nav-item .fa{
+			font-size: 35px;
+			margin-top: 2px;
+			color: #ff5c33;
+		}
+
+		
+		.dropdown-menu a:active{
+			background-color: #404040;
+		}
+
 		.form1{
 			margin-top: 20px;
 			background-color: white;
@@ -138,6 +149,10 @@
 	        </div>
 	      </li>
 
+	      <li class="nav-item px-2">
+	      	<a href="cart.php"><span style=" color:green; font-size:30px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></a>
+	      </li>
+
 
 	    </ul>
 	  	</div>
@@ -150,8 +165,8 @@
 	<h2>USER PROFILE</h2>
 	</div>
 	<div class="profile-input-field">
-		<table>
-		<form method="post" , action="#">
+		<form method="post">
+			<table>
 			<tr>
 			<div class="form-group">
 			<td><label>Full Name</label></td>
@@ -179,9 +194,9 @@
 			<td><input type="text" name="number" style="width: 20em" placeholder="Enter your Address" value="<?php echo $row['user_mobilenumber']; ?>" required /></td>
 			</div>
 			</tr>
+			</table>
+			<input type="submit" name="submit" class="btn btn1">
 			</form>
-		</table>
-				<input type="submit" name="submit" class="btn btn1" value="Update">
 	</div>
 
 	</div>
@@ -199,9 +214,7 @@
 
 	        <!-- Content -->
 	        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Bay View Cafe</h5>
-	        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-	          consectetur
-	          adipisicing elit.</p>
+	        <p>Hotel Harbour View rooftop, PJ Ramchandani Marg, Apollo Bandar, Colaba, Mumbai, Maharashtra 400001</p>
 
 	      </div>
 	      <!-- Grid column -->
@@ -300,7 +313,7 @@
 		?>
 		<script type="text/javascript">
 			alert("Update Successfull");
-			window.location = 'index.php'
+			window.location = 'index.php';
 		</script>
 
 		<?php

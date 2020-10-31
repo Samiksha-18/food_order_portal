@@ -39,6 +39,17 @@
 			
 		}
 
+
+	    .dropdown-menu a:active{
+	      background-color: #404040;
+	    }
+
+	    .nav-item .fa{
+	      font-size: 35px;
+	      margin-top: 2px;
+	      color: #ff5c33;
+	    }
+
 		.jumbotron{
 			background-image: url('./images/restuarant.jpg');
 			height: 400px;
@@ -223,7 +234,7 @@
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
   </ol>
   <div class="carousel-inner im">
     <div class="carousel-item active">
@@ -265,7 +276,7 @@
 
 	<div class="col-lg-8">
 		<div class="foodv">
-			<video muted controls>
+			<video muted controls autoplay>
 				<source src="./images/foodvideo1.mp4" type="video/mp4">
  				Your browser does not support the video tag.
 			</video>
@@ -355,9 +366,7 @@
 
         <!-- Content -->
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Bay View Cafe</h5>
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <p>Hotel Harbour View rooftop, PJ Ramchandani Marg, Apollo Bandar, Colaba, Mumbai, Maharashtra 400001</p>
 
       </div>
       <!-- Grid column -->
@@ -409,15 +418,7 @@
 	        <i class="fa fa-youtube-play"> </i>
 	      </a>
 	    </li>
-	<!--     <li class="list-inline-item">
-	      <a class="btn-floating btn-li mx-1">
-	        <i class="fab fa-linkedin-in"> </i>
-	      </a>
-	    </li>
-	    <li class="list-inline-item">
-	      <a class="btn-floating btn-dribbble mx-1">
-	        <i class="fab fa-dribbble"> </i>
-	      </a>
+
 	    </li> -->
  		</ul>
 
@@ -434,18 +435,6 @@
   </div>
   <!-- Footer -->
 
-  <!-- <hr> -->
-
-  <!-- Call to action -->
-<!--   <ul class="list-unstyled list-inline text-center py-2">
-    <li class="list-inline-item">
-      <h5 class="mb-1">Register for free</h5>
-    </li>
-    <li class="list-inline-item">
-      <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-    </li>
-  </ul> -->
-  <!-- Call to action -->
 
   <hr>
 

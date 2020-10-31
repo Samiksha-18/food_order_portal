@@ -9,10 +9,9 @@
 		$number = $_POST['contact_mobilenumber'];
 		$feedback = $_POST['feedback'];
 
-		$query = "INSERT INTO contact (contact_uid,contact_fname,contact_email,contact_mobilenumber,contact_query) VALUES ('$id','$fullname','$email','$number','$feedback')";
+		$query = "INSERT INTO contact(contact_uid,contact_fname,contact_email,contact_mobilenumber,contact_query) VALUES ('$id','$fullname','$email','$number','$feedback')";
 		$result = mysqli_query($db,$query);
 		if ($result) {
-			# code...
 			?>
 			<script type="text/javascript">
 				alert("Your query has been sent. You will be contacted shortly");

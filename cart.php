@@ -79,9 +79,7 @@
 					if (mysqli_query($db,$query2)) {
 						?>
 							<script type="text/javascript">
-								alert("rowstate changed");
 								document.location = 'index.php';
-
 							</script>
 						<?php
 					}
